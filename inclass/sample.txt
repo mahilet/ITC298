@@ -1,0 +1,18 @@
+//file.js
+var fs = require("fs");
+ console.log("hello from the files.js module");
+ var read = function(filename, callback){
+   fs.readFile(filename, "utf8", function(err, data){
+     if(err)return callback(err);
+     data = data + "...";
+     callback(null, data);
+
+   });
+ };
+
+
+
+module.exports = {
+//  hello: "world"
+read: read
+};
