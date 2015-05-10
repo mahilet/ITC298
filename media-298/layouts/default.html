@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{title}} | Mahilet</title>
+    <meta charset=utf8>
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    {{#admin}}
+    <b>you are logged in</b>
+    {{/admin}}
+    <h1>Mahilet's media page</h1>
+      <nav>
+        <a href = "/">Home</a>
+        <a href = "/movies">movies</a>
+        <a href = "/tvshows">tvshows</a>
+        <a href = "/books">books</a>
+      </nav>
+      <br>
+<!-- <p>--below is 'contents' from 'index.html'--</p> -->
+  {{{content}}}
+  <!-- <p>--end 'contents' from 'index.html'-- -->
+
+  </body>
+  </html>

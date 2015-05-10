@@ -1,0 +1,25 @@
+
+{"media":
+
+  [  {"movies":
+        [
+          {"name": "Interstellar", "subject": "space", "minutes": "300"},
+          {"name": "Wild", "subject": "Hiking", "minutes": "200"},
+          {"name": "fried Green Tomatoes","subject": "famiy", "minutes": "100"}
+
+        ]},
+
+
+    {"tvshows":
+      [{"name": "Divorce Court","subject": "Reality", "episodes": "10"},
+        {"name": "The Voice","subject": "Singing", "episodes": "15"},
+        {"name": "Football Game","subject": "Sport", "episodes": "2"}
+      ]},
+
+    {"books":
+      [
+        {"name": "Bible","subject": "Religion", "pages": "1000"},
+        {"name": "Story of America","subject": "history", "pages": "500"},
+        {"name": "Contact","subject": "Fiction", "pages": "300"}
+      ]}]
+}
