@@ -50,7 +50,7 @@ server.route({
       reply.view("books.html", {
         title: "books",
         //BELOW IS PROPERTY THAT COMMUNTICATES WITH THE 'SECTION' IN HANDLEBARS
-        books: JSON.parse(data).books
+        books: JSON.parse(data)media.books
       });
     });
   }
