@@ -1,11 +1,7 @@
-<h2>this is the movies page</h2>
-
+<h2> Here is a list of movies to choose from!</h2>
 
 <ul>
-       {{#movies}}
-       <li><h3>Title: {{name}}</li>
-       <li><h4>Subject:  {{subject}}</li>
-       <li><p>Minutes:  {{minutes}}</li>
-         {{/movies}}
-
-     </ul>
+    {{#movies}}
+    	<li><a href="movie/{{@index}}">{{title}}</a>
+    {{/movies}}
+</ul>

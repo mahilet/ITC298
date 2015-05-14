@@ -1,14 +1,15 @@
 
-<h2>this is my books pages</h2>
+<h2>this my book pages</h2>
 
 “People must learn to hate, and if they can learn to hate, they can be taught to love, for love comes more naturally to the human heart than its opposite... Man's goodness is a flame that can be hidden but never explained.”
 Nelson Mandela, Long Walk to Freedom
 
 <ul>
-       {{#books}}
-       <li><h3>Title: {{name}}</li>
-       <li><h4>Subject:  {{subject}}</li>
-       <li><p>Minutes:  {{pages}}</li>
-         {{/books}}
+    {{#each books}}
+       <li><h3>Name -  {{name}}</li>
+       <li><h4>The subject:  {{subject}}</li>
+       <li><p>pages:  {{pages}}</li>
+
+    {{/each}}
 
      </ul>
