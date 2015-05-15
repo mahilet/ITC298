@@ -1,0 +1,38 @@
+body{
+  color:blue;
+
+  box-sizing: border-box;
+  display:flex;
+
+  font-family:sans-serif;
+}
+
+nav{
+  background:yellow;
+  margin-left:20px;
+}
+nav a {
+  text-decoration:none;
+  border-bottom:4px solid #808;
+  color:red;
+  size:large;
+  padding: 20px;
+
+}
+
+h1 {
+  color:green;
+}
+
+aside {
+  background:green;
+  float:right;
+}
+
+section{
+  background:antiquewhite;
+}
+
+h4 {
+  color:green;
+}
