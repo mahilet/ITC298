@@ -12,6 +12,7 @@ var allJson;
 
 fs.readFile("package.json", "utf8", function(err, data){
   allJson = JSON.parse(data).blogposts;
+
 });
 
 
@@ -41,12 +42,6 @@ server.route({
 });
 
 
-var shortJson;
-// -------THIS IS WHAT BREAKS IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// fs.readFile("tempPosts.json", "utf8", function(err, data){
-//   shortJson = JSON.parse(data).tempPosts;
-// });
-//
 
 
 // -----HIS IS WHERE I go to ----------------
@@ -55,29 +50,39 @@ server.route ({
   method: "GET",
   path:"/createpost",
   handler:function(req,reply) {
-    reply.view("createpost.html",{
-
-    });
+    reply.view("createpost.html");
   }
 });
 
 // -----HIS IS WHERE I STARRT TO SAVE DATA TO JSON-----------------
+//  var strJson = JSON.stringify({ a:1, b:2, c:3 }, null, 4); fs.appendFile("tempPosts.json",strJson, function (err) {
+//    if (err) throw err;
+//    console.log('The "data to append" was appended to file!');
+//  });
+//
+//
+//
+// fs.appendFile('tempPosts.json', 'req.payload', function (err) {
+//   if (err) throw err;
+//   console.log('The "data to append" was appended to file!');
+// });
+var titpost;
 
 server.route ({
   method: "POST",
   path:"/createpost",
   handler:function(req,reply) {
+    // posting.add(req.payload);//for temp storage
+    var titpost = req.payload;
 
-    var namePost;
-    var namePost = JSON.stringify(req.payload, null,4);
-
-    console.log(namePost);
+    console.log(titpost);
     reply.view("createpost.html", {
-      shorts:shortJson
+
+
       // blogs: posting.tempPostLists
     },
 
-    fs.appendFile('tempPosts.json', namePost, 'utf8', function (err) {
+    fs.appendFile('tempPosts.json', titpost, 'utf8', function (err) {
       if (err) throw err;
       console.log('The "data to append" was appended to file!');
     })
@@ -85,7 +90,7 @@ server.route ({
   }
 });
 
-//  this is a list of   users biographies
+//  this is a list of users biographies
 server.route ({
   method: "GET",
   path:"/bios",

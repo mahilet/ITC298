@@ -42,11 +42,11 @@ server.route({
 
 
 var shortJson;
-// -------THIS IS WHAT BREAKS IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 // fs.readFile("tempPosts.json", "utf8", function(err, data){
 //   shortJson = JSON.parse(data).tempPosts;
 // });
-//
+
 
 
 // -----HIS IS WHERE I go to ----------------
@@ -69,7 +69,7 @@ server.route ({
   handler:function(req,reply) {
 
     var namePost;
-    var namePost = JSON.stringify(req.payload, null,4);
+    var namePost = JSON.stringify(req.payload, null, 6);
 
     console.log(namePost);
     reply.view("createpost.html", {
@@ -85,7 +85,7 @@ server.route ({
   }
 });
 
-//  this is a list of   users biographies
+//  this is a list of users biographies
 server.route ({
   method: "GET",
   path:"/bios",

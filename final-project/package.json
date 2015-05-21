@@ -31,8 +31,7 @@
 
 "comment":"We have not talked very much about MVC in this class, but that's because Hapi makes it so easy to use. Your views are literally just the view templates that you write and send with reply.view(). The handlers for each route are considered your controllers, because they accept data from the browser and send data to the view. And your models are additional objects, likely stored in and accessed via Node modules, that contain the state of your application.",
 
-"mywebsite":"www.twitter.com",
-
+"myswebite":"www.twitter.com",
 
 "pic":"assets/images/sheba.jpg",
 
@@ -55,7 +54,6 @@
 
 "mywebsite":"www.twitter.com",
 
-
 "bio":"Kattie B. Screws in Barbour County, Alabama, to Martha (née Upshaw; December 14, 1907 – April 25, 1990) and Prince Albert Screws (October 16, 1907 – January 21, 1997). When Jackson was four, her father changed his surname to Scruse, and renamed his daughter to Katherine Esther. The younger of two daughters, Jackson contracted polio at two but survived the disease. Effects of the disease left"
 },  {
 
@@ -69,8 +67,7 @@
 
 "comment":"EEEEEEEEEEEEEEEEeeeeeeeeeeeeeeeEEEEEEEbut that's because Hapi makes it so easy to use. Your views are literally just the view templates that you write and send with reply.view(). The handlers for each route are considered your controllers, because they accept data from the browser and send data to the view. And your models are additional objects, likely stored in and accessed via Node modules, that contain the state of your application.",
 
-"mywebsite":"www.blblblblblb.com",
-
+"myswebite":"www.cnn.com",
 
 "pic":"assets/images/bilbo.jpg",
 
