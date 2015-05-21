@@ -1,0 +1,30 @@
+
+
+<h2>this is where you make your reply ITS THE 'CREATE POST PAGE'</h2>
+
+
+
+<form action="/createpost" method="POST">
+
+		<label for="username">Your username:</label><br />
+		<input name="username" type="text" size="100" ><br />
+		<label for="tempComments">reply to conversation</label><br />
+		<textarea class="text-box" name="tempComments" ></textarea><br />
+
+	<input type="submit">
+</form>
+
+<ol>
+	<li>make "req.payload" into an object called 'blogpost'
+	<li>push/write 'blogpost' oject into package.json as object inside of 'blogposts'
+	<li>
+
+</ol>
+
+	{{#blogs}}
+	<li class = "single"><p>{{username}} <br>
+	{{tempComments}}</li>
+
+	{{/blogs}}
+
+</ul>

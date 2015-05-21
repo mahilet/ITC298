@@ -1,0 +1,82 @@
+{
+"blogposts": [
+{
+
+        "username":"Mahilet",
+
+        "date":"4/5/15",
+
+        "topic":"bananas",
+
+        "icon":"assets/images/bird.png",
+
+        "comment":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus mauris, rhoncus eget ultricies in, venenatis vel mauris. Maecenas blandit nulla eget sem semper, tempus mattis augue aliquam. Pellentesque                       facilisis dictum magna vel posuere. Aliquam erat volutpat. Suspendisse iaculis nisl sed laoreet euismod. Nullam et laoreet neque, feugiat dictum purus. ",
+
+        "mywebsite":"www.twitter.com",
+
+        "pic":"assets/images/mahilet.jpg",
+
+        "bio":" (born May 16, 1966) is an American singer, songwriter, and actress. Known for a series of sonically innovative, socially conscious and sexually provocative records, as well as elaborate stage shows, television roles, and film roles, she has been a prominent figure in popular culture for over 25 years. The youngest child of the Jackson family, she began her career with the variety television series The Jacksons in 1976 and went on to appear in other television shows throughout the 1970s and early 1980s, including Good Times and Fame."
+},
+
+{
+
+"username":"sheba",
+
+"date":"7/5/95",
+
+"topic":"bananas",
+
+"icon":"assets/images/bird.png",
+
+"comment":"We have not talked very much about MVC in this class, but that's because Hapi makes it so easy to use. Your views are literally just the view templates that you write and send with reply.view(). The handlers for each route are considered your controllers, because they accept data from the browser and send data to the view. And your models are additional objects, likely stored in and accessed via Node modules, that contain the state of your application.",
+
+"mywebsite":"www.twitter.com",
+
+
+"pic":"assets/images/sheba.jpg",
+
+
+"bio":"Jackson (1893–1993), a schoolteacher, in Fountain Hill, Arkansas, on July 26, 1928.[1] Jackson was the eldest of five children, which included sisters Verna Mae and Lula Mae, and brothers Lawrence and Luther."
+},
+{
+
+"username":"sam",
+
+"date":"7/7/85",
+
+"pic":"assets/images/sam.jpg",
+
+"topic":"bananas",
+
+"icon":"assets/images/other.png",
+
+"comment":"When determining what handler to use for a particular request, hapi searches paths in order from most specific to least specific. That means if you have two routes, one with the path /filename.jpg and a second route /filename.{ext} a request to /filename.jpg will match the first route, and not the second. This also means that a route with the path /{files*} will be the last route tested, and will only match if all other routes fail.",
+
+"mywebsite":"www.twitter.com",
+
+
+"bio":"Kattie B. Screws in Barbour County, Alabama, to Martha (née Upshaw; December 14, 1907 – April 25, 1990) and Prince Albert Screws (October 16, 1907 – January 21, 1997). When Jackson was four, her father changed his surname to Scruse, and renamed his daughter to Katherine Esther. The younger of two daughters, Jackson contracted polio at two but survived the disease. Effects of the disease left"
+},  {
+
+"username":"bilbo baggins",
+
+"date":"7/5/95",
+
+"topic":"bananas",
+
+"icon":"assets/images/bird.png",
+
+"comment":"EEEEEEEEEEEEEEEEeeeeeeeeeeeeeeeEEEEEEEbut that's because Hapi makes it so easy to use. Your views are literally just the view templates that you write and send with reply.view(). The handlers for each route are considered your controllers, because they accept data from the browser and send data to the view. And your models are additional objects, likely stored in and accessed via Node modules, that contain the state of your application.",
+
+"mywebsite":"www.blblblblblb.com",
+
+
+"pic":"assets/images/bilbo.jpg",
+
+
+"bio":"Jackson (1893–1993), a schoolteacher, in Fountain Hill, Arkansas, on July 26, 1928.[1] Jackson was the eldest of five children, which included sisters Verna Mae and Lula Mae, and brothers Lawrence and Luther."
+}
+
+]
+}
