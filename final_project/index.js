@@ -20,22 +20,26 @@ server.start();
 
 var db = new sqlite.Database("database.db", function(){
 
-  db.run("CREATE TABLE IF NOT EXISTS users (name, comment)", function(){
+    db.run("CREATE TABLE IF NOT EXISTS users (name, comment)", function(){
 
+        db.run("INSERT INTO users VALUES ('Mahilet' , 'blah,blah,blah')");
+        
+        db.get("SELECT * FROM users", function(err,result){
+            console.log(result);
+        });
 
+        db.all("SELECT * FROM users", function(err,results){
+          console.log(results);
+        });
+    });
+    db.run("CREATE TABLE IF NOT EXISTS auth (username, password)", function(){
 
-      db.run("INSERT INTO users VALUES ('Mahilet' , 'blah,blah,blah')");
+      db.run("INSERT INTO auth VALUES ('h', '1')");
 
-      db.get("SELECT * FROM users", function(err,result){
+      db.get("SELECT * FROM auth", function(err,result){
         console.log(result);
       });
-
-
-
-    db.all("SELECT * FROM users", function(err,results){
-      console.log(results);
     });
-  });
 });
 
 //------------END ADDING SQLITE3------------------------
@@ -95,30 +99,21 @@ server.route({
   method:"POST",
   path:"/login",
   handler:function(req, reply){
-    console.log(req.payload);
-    var expected = fusers[req.payload.user];
-    if(req.payload.password == expected) {
-    // reply.view("bloglist.html");
+    console.log(req.payload.user);
+      
+    var user = db.get("SELECT * FROM auth WHERE username = $username", {
+        $username : req.payload.user
+    }, function(err, result) {
+        console.log(this, result, req.payload.password);
+        if(req.payload.password == result.password) {
 
-      var response = reply.view("bloglist");
-      //var response = reply.view("bloglist.html");
-      var id = Date.now();
-      response.state("user", req.payload.user);
-      response.state("session", id + "");
+          var response = reply.view("bloglist.html");
+        } else {
+            reply.redirect("/login");
+        }
+    });
 
-      db.run("DELETE FROM auth WHERE username = $user", {
-        $user: req.payload.user
-      },function(){
-        db.run("INSERT INTO auth VALUES ($user,$session)",{
-          $user: req.payload.user,
-          $session: id
-        });
-
-      });
-    }else{
-      reply.redirect("/login");
     }
-  }
 });
 
 
