@@ -1,0 +1,27 @@
+
+
+<h2>this is where you make your reply ITS THE 'CREATE POST PAGE'</h2>
+
+
+
+<form action="/createpost" method="POST">
+
+		<label for="username">Your username:</label><br />
+		<input name="username" type="text" size="100" ><br />
+		<label for="comment">reply to conversatiun</label><br />
+		<textarea class="text-box" name="comment" ></textarea><br />
+		<label for="date">Your date:</label><br />
+		<input name="date" value="Date.now()" size="100" ><br />
+
+	<input type="submit">
+</form>
+
+Date.now()
+
+	{{#shorts}}
+	<li class = "single"><p>{{username}} <br>
+	{{comment}}</li>
+
+	{{/shorts}}
+
+</ul>

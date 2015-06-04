@@ -1,0 +1,12 @@
+
+ <h2>THIS IS MY LIST PAGE for BLOG POSTS</h2>
+<ul >
+    {{#each list}}
+    <li><a href="bios/bio/{{@index}}"><img src="{{icon}}" class="icon"></li>
+       <li><h3>On {{date}}, {{username}} </a>says:</li>
+
+       <li class = "single"><p>{{comment}}</li>
+
+    {{/each}}
+
+</ul>
