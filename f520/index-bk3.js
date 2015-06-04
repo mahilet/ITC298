@@ -3,40 +3,16 @@ var fs = require("fs");
 var hapi = require("hapi");
 var server = new hapi.Server();
 //require your custom 'push' into Array node
-//works only while server is running
 var posting= require("./posts");
-
-
-
-
 
 server.connection({port:8000});
 server.start();
 
-// //----------requiring mysql------
-
-// var mysql      = require('mysql');
-// var connection = mysql.createConnection({
-//   host     : 'mahitletdan.com',
-//   user     : 'mahilet',
-//   password : 'mahi-dani21'
-// });
-
-// connection.connect();
-
-// connection.query('SELECT 1 + 1 AS solution', function(err, rows, fields) {
-//   if (err) throw err;
-
-//   console.log('The solution is: ', rows[0].solution);
-// });
-
-// connection.end();
-
-// //--------end my sql-------
-
 var allJson;
-fs.readFile("tempPosts.json", "utf8", function(err, data){
-  allJson = JSON.parse(data);
+
+fs.readFile("package.json", "utf8", function(err, data){
+  allJson = JSON.parse(data).blogposts;
+
 });
 
 
@@ -58,17 +34,13 @@ server.route({
   path: "/",
   handler: function(req, reply){
       reply.view("bloglist.html",{
-           list: allJson
+
+       //BELOW IS PROPERTY THAT COMMUNTICATES WITH THE 'SECTION' IN HANDLEBARS
+       list: allJson
   });
 }
 });
 
-
-
-// -------THIS IS WHAT BREAKS IT!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// fs.readFile("tempPosts.json", "utf8", function(err, data){
-//   shortJson = JSON.parse(data).username;
-// });
 
 
 
@@ -78,38 +50,47 @@ server.route ({
   method: "GET",
   path:"/createpost",
   handler:function(req,reply) {
-    reply.view("createpost.html",{
-
-    });
+    reply.view("createpost.html");
   }
 });
 
 // -----HIS IS WHERE I STARRT TO SAVE DATA TO JSON-----------------
+//  var strJson = JSON.stringify({ a:1, b:2, c:3 }, null, 4); fs.appendFile("tempPosts.json",strJson, function (err) {
+//    if (err) throw err;
+//    console.log('The "data to append" was appended to file!');
+//  });
+//
+//
+//
+// fs.appendFile('tempPosts.json', 'req.payload', function (err) {
+//   if (err) throw err;
+//   console.log('The "data to append" was appended to file!');
+// });
+var titpost;
 
 server.route ({
-      method: "POST",
-      path:"/createpost",
-      handler:function(req,reply) {
+  method: "POST",
+  path:"/createpost",
+  handler:function(req,reply) {
+    // posting.add(req.payload);//for temp storage
+    var titpost = req.payload;
 
-        var namePost = req.payload;
-        console.log(namePost);
-        reply.view("bloglist.html",{
-           list: allJson
+    console.log(titpost);
+    reply.view("createpost.html", {
 
-          
-          // blogs: posting.tempPostLists
-        })
 
-        allJson.push(namePost);
+      // blogs: posting.tempPostLists
+    },
 
-        fs.writeFile('tempPosts.json', JSON.stringify(allJson), function (err) {
-          if (err) throw err;
-          console.log('The ' + namePost );
-      });
+    fs.appendFile('tempPosts.json', titpost, 'utf8', function (err) {
+      if (err) throw err;
+      console.log('The "data to append" was appended to file!');
+    })
+    );
   }
 });
 
-//  this is a list of   users biographies
+//  this is a list of users biographies
 server.route ({
   method: "GET",
   path:"/bios",
@@ -128,6 +109,7 @@ server.route ({
 
 var thisObject;
 
+
 server.route({
   method:"GET",
   path: "/bios/bio/{index}",
@@ -139,10 +121,11 @@ server.route({
         pic: thisObject.pic,
         bio: thisObject.bio,
         name: thisObject.username
-      
+       //BELOW IS PROPERTY THAT COMMUNTICATES WITH THE 'SECTION' IN HANDLEBARS
+
      });
 
-    }
+}
 });
 
 
@@ -153,10 +136,9 @@ server.route ({
    path:"/assets/{param*}",
    handler:{
        directory:{
-       path:"src"
+       path:"/src"
 
-//I'm temporarily changing this path because I am not using grunt
+      //  I'm temporarily changing this path because I am not using grunt
        }
    }
 });
-

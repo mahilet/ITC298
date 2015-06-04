@@ -1,0 +1,48 @@
+{
+  "blogposts": [
+    {
+
+      "username":"Mahilet",
+
+      "date":"4/5/15",
+
+      "topic":"bananas",
+
+      "icon":"assets/images/frog.png",
+
+      "comment":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus metus mauris, rhoncus eget ultricies in, venenatis vel mauris. Maecenas blandit nulla eget sem semper, tempus mattis augue aliquam. Pellentesque facilisis dictum magna vel posuere. Aliquam erat volutpat. Suspendisse iaculis nisl sed laoreet euismod. Nullam et laoreet neque, feugiat dictum purus. ",
+
+      "mywebite":"www.twitter.com"
+    },
+
+    {
+
+      "username":"sheba",
+
+      "date":"7/5/95",
+
+      "topic":"bananas",
+
+      "icon":"assets/images/bird.png",
+
+      "comment":"We have not talked very much about MVC in this class, but that's because Hapi makes it so easy to use. Your views are literally just the view templates that you write and send with reply.view(). The handlers for each route are considered your controllers, because they accept data from the browser and send data to the view. And your models are additional objects, likely stored in and accessed via Node modules, that contain the state of your application.",
+
+      "mywebite":"www.twitter.com"
+    },
+    {
+
+      "username":"sam",
+
+      "date":"7/7/85",
+
+      "topic":"bananas",
+
+      "icon":"assets/images/other.png",
+
+      "comment":"When determining what handler to use for a particular request, hapi searches paths in order from most specific to least specific. That means if you have two routes, one with the path /filename.jpg and a second route /filename.{ext} a request to /filename.jpg will match the first route, and not the second. This also means that a route with the path /{files*} will be the last route tested, and will only match if all other routes fail.",
+
+      "mywebite":"www.twitter.com"
+    }
+
+    ]
+}

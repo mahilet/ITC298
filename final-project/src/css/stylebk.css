@@ -1,0 +1,85 @@
+
+body {
+
+  color: red;
+  font-size:large;
+  background:white;
+}
+
+#wrapper{
+  width:800px;
+  margin:auto;
+}
+#multi-posts{
+  clear:both;
+  background: antiquewhite;
+
+  color:black;
+  margin:auto;
+
+}
+
+p {
+  color:blue;
+  padding: 8px;
+}
+
+section p {
+  color:blue;
+}
+
+nav {
+  background: yellow;
+}
+ul{
+  text-decoration: none;
+  list-style: none;
+
+}
+nav ul {
+  width:100%;
+  border: 1px solid black;
+  border-radius: 5px;
+
+
+}
+
+nav  li {
+    display: inline-block;
+    width: 15%;
+    padding:0 0 20px 20px;
+    background: white;
+    text-align: center;
+}
+
+nav  li {
+    font-size: 24px;
+}
+
+.text-box {
+  height:200px;
+  width:80%;
+  background:white;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.icon{
+  margin-top: 15px;
+  max-width: 50px;
+
+}
+
+.biopicsmall{
+  margin-top: 15px;
+  width: 150px;
+
+}
+
+.single{
+  border:1px solid black;
+  border-radius: 5px;
+  margin-bottom:15px;
+  background:white;
+
+
+}
