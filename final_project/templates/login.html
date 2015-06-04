@@ -5,13 +5,13 @@
   username:admin:"admin"</P><br>
 <span class="login">Hello</span>
       <h1>Welcom to Login </h1>
-      <form action = "/login" method="POST">
-        <label for ="user">user</label>
-        <input name="user">
+      <form action="/login" method="POST">
+        <label for="user">user</label>
+        <input type="text" name="user" value="{{username}}">
 
-        <label for ="password">password</label>
-        <input name="password">
-
+        <label for ="password" >password</label>
+        <input type="password" name="password"  value="{{password}}">
+        {{error}}
 
 
         <input type="submit">
