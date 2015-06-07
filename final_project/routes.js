@@ -28,7 +28,7 @@ module.exports = [
     }
   },
 
-  // -----HIS IS WHERE I STARRT TO SAVE DATA TO JSON-----------------
+
 
   {
     method: "POST",
@@ -37,7 +37,6 @@ module.exports = [
 },
 
 
-  //-------------------TEMP LOGIN SERVER ROUTES--------
 
   {
     method:"GET",
@@ -53,16 +52,7 @@ module.exports = [
     handler:require("./handlers/login")
   },
 
-  //-------------------END TEMP LOGIN SERVER ROUTES--------
 
-
-  // -----HIS IS WHERE I go to ----------------
-
-  
-
-
-
-//this is where are pictures and css
 
 {
   method:"GET",
