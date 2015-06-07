@@ -13,14 +13,20 @@ var usersDb = {
 
       //store the connection for outside modules to use directly
       usersDb.connection = db;
+      // db.run("DELETE FROM blogposts");
+       db.run("INSERT INTO users VALUES ('h', 'assets/images/mahilet.jpg', 'banana.com', '1');");
+
+       // db.run("INSERT INTO blogposts VALUES ('DATE NOW!', 'NEW,NEW,NEW somehting, blahblah,  blahblah','assets/images/frog.png');");
+       
+
 
       //create tables, and execute ready callback when done
       async.parallel([
         function(next) {
           db.run("CREATE TABLE IF NOT EXISTS users (username, bio, website, password);", function() {
-            console.log("users is created");
-             db.run("INSERT INTO users VALUES ('Mahilet', 'bio', 'website', '1234');", function() {
-               console.log("Mahilet is created");
+            console.log("users TABLE is created");
+             db.run("INSERT INTO users VALUES ('Mahilet', 'humanFemail', 'google.com', '1234');", function() {
+               console.log("Mahilet is inserted into database");
              });
           }, next);
         },
