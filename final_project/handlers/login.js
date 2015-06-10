@@ -1,5 +1,5 @@
 //createpost handler
-var db = require("../db");
+var db = require("../database");
 
 
 
@@ -7,6 +7,7 @@ var passwords;
 db.getAllblogUsers(function (err, result) {
   passwords = result;
 });
+
 
 
 module.exports = function(req, reply){

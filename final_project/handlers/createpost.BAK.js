@@ -1,6 +1,6 @@
 //createpost handler
 
-var db = require("../db");
+var db = require("../database");
 
 var blogUsers = require("../models/blogUsers");
 
@@ -29,7 +29,7 @@ module.exports = function(req, reply) {
     var data;
     if (err) {
       console.log(err);
-      
+
     } else {
       data = model.toJSON();
     }
@@ -40,4 +40,3 @@ module.exports = function(req, reply) {
   });
   console.log(data);
 };
-

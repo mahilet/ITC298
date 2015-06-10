@@ -1,4 +1,4 @@
-var Post = require("../models/blogUsers");
+var Post = require("../models/blogPosts");
 
 module.exports = function(req, reply) {
   var payload = req.payload;
@@ -7,10 +7,10 @@ module.exports = function(req, reply) {
     if (err) {
       console.error(err);
     }
-    //reload data
+    // reload data
     // var response = reply("Saved!");
-   
-    
+    //
+    //
     // response.headers.Location = "/";
      reply.redirect("/");
     console.log(model);

@@ -1,18 +1,13 @@
 //createpost handler
-var db = require("../db");
+var db = require("../database");
 
 var blogpeople;
-db.getAllblogUsers(function (err, result) {
-  blogpeople = result;
-});
+module.exports = function(req, reply) {
+  db.getAllblogUsers(function (err, result) {
 
+        reply.view("bio",{
+          handlebars:result
 
-module.exports =  function(req, reply){
-
-    reply.view("bio.html",{
-    	handlebars:blogpeople
-     
-
-    });
-
-  }
+        });
+  });
+}

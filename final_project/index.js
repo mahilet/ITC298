@@ -4,7 +4,7 @@ var fs = require("fs");
 var hapi = require("hapi");
 var server = new hapi.Server();
 
-var db = require("./db");
+var db = require("./database");
 server.connection({port:8000});
 
 
@@ -14,7 +14,7 @@ db.init(function(err) {
   if (err) {
     return console.error(err);
   }
-  
+
   server.start(function() {
     console.log("Server ready!");
   });

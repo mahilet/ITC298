@@ -27,12 +27,15 @@ module.exports = function(grunt) {
 
 
 
-  grunt.registerTask("hello", function() {
-  console.log("hello from grunt!!");
-  grunt.file.write("build/test.txt","this file is written sync");
-});
+//   grunt.registerTask("hello", function() {
+//   console.log("hello from grunt!!");
+//   grunt.file.write("build/test.txt","this file is written sync");
+// });
   //putting tasks in array lets you start a series of tasks in a specific order
-  grunt.registerTask("hi", ["hello"]);
+  // grunt.registerTask("hi", ["hello"]);
+
+
+
 
   grunt.registerTask("default",["autoprefixer","nodemon"]);
 
