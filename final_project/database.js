@@ -5,8 +5,8 @@ var db; // used across this module
 var usersDb = {
   connection: null,
   init: function(ready) {
-    usersDb.connection = new sqlite.Database("database.db", function(err) {
-      var db = this;
+    var db = usersDb.connection = new sqlite.Database("database.db", function(err) {
+
       if (err) {
         console.error("Database not opened");
         process.exit(1);
@@ -16,13 +16,14 @@ var usersDb = {
       //create tables, and execute ready callback when done
       async.parallel([
         function(next) {
-          db.run("CREATE TABLE IF NOT EXISTS users (username, bio, website, password);", function() {
-            console.log("users TABLE is created");
-             db.run("INSERT INTO users VALUES ('Mahilet', 'humanFemail', 'google.com', '1234');", function() {
-               console.log("Mahilet is inserted into database");
-               db.run("INSERT INTO users VALUES ('h', 'assets/images/mahilet.jpg', 'banana.com', '1');");
+          console.log("creating user database", db);
+          db.run("CREATE TABLE IF NOT EXISTS users (username, bio, website, password);", function(err) {
+            console.log(err, "users TABLE is created");
+             db.run("INSERT INTO users VALUES ('Mahilet', 'humanFemail', 'google.com', '1234');", function(err) {
+               console.log(err, "Mahilet is inserted into database");
+               db.run("INSERT INTO users VALUES ('h', 'assets/images/mahilet.jpg', 'banana.com', '1');", next);
              });
-          }, next);
+          });
         },
         function(next) {
           // db.run("DELETE FROM blogposts");
@@ -32,6 +33,7 @@ var usersDb = {
           }, next);
         }
       ], function(err, result) {
+        console.log(err);
         console.log("done setting up db")
         if (ready) ready(err);
       });

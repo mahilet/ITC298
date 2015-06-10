@@ -4,7 +4,6 @@ var db = require("../database");
 
 var LOAD = "SELECT  username, bio, website,password FROM users WHERE rowid = $id;";
 var SAVE_NEW = "INSERT INTO users (username, bio, website, password) VALUES ($username, $bio, $website, $password);";
-
 var UPDATE = "UPDATE users SET username = $username, bio = $bio, website = $website, password =$password WHERE rowid = $id;";
 var LAST = "SELECT last_insert_rowid() AS rowid FROM users;";
 

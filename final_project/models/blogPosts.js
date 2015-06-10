@@ -3,7 +3,6 @@ var db = require("../database");
 
 
 var LOAD = "SELECT  date, topic, comment FROM blogposts WHERE topic = $topic;";
-
 var  SAVE_NEW = "INSERT INTO blogposts (date, topic, comment) VALUES ($date, $topic, $comment);";
 var UPDATE = "UPDATE blogposts SET date = $DATE, topic = $topic, comment = $comment WHERE topic = $topic;";
 var LAST = "SELECT last_insert_rowid() AS topic FROM blogposts;";
@@ -42,7 +41,7 @@ var LAST = "SELECT last_insert_rowid() AS topic FROM blogposts;";
     var id = this.get("id");
     var q = id == "new" ? SAVE_NEW : UPDATE;
       // pass in its data
-      // 
+      //
       // console.log(db)
     var query = db.connection.prepare(q);
 
