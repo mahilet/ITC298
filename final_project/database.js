@@ -25,6 +25,7 @@ var usersDb = {
           }, next);
         },
         function(next) {
+          // db.run("DELETE FROM blogposts");
           db.run("CREATE TABLE IF NOT EXISTS blogposts (date, comment, topic);", function () {
             console.log("blogposts is created");
 
