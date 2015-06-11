@@ -1,0 +1,16 @@
+<h2>hello from simple login page</h2>
+<!-- <p>you have to pick one person for now<br>username: h  password:"1"<br> -->
+
+<span class="login">Hello</span>
+      <h1>Welcom to Login </h1>
+      <form action="/login" method="POST">
+        <label for="user">user</label>
+        <input type="text" name="user" value="{{username}}">
+
+        <label for ="password" >password</label>
+        <input type="password" name="password"  value="{{password}}">
+        {{error}}
+
+        <br /> <br />
+        <input type="submit">
+      </form>

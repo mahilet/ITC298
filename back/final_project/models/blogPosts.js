@@ -1,10 +1,9 @@
 var Backbone = require("backbone");
 var db = require("../database");
-var moment = require('moment');
 
 
 var LOAD = "SELECT  date, topic, comment FROM blogposts WHERE topic = $topic;";
-var  SAVE_NEW = "INSERT INTO blogposts (date, topic, comment, timestamp) VALUES ($date,$topic, $comment, $timestamp);";
+var  SAVE_NEW = "INSERT INTO blogposts (date, topic, comment) VALUES ($date, $topic, $comment);";
 var UPDATE = "UPDATE blogposts SET date = $DATE, topic = $topic, comment = $comment WHERE topic = $topic;";
 var LAST = "SELECT last_insert_rowid() AS topic FROM blogposts;";
 
@@ -12,27 +11,30 @@ var LAST = "SELECT last_insert_rowid() AS topic FROM blogposts;";
   var BlogPost = Backbone.Model.extend({
 
   defaults: {
-    date: "",
+    date: "Unamed ",
     topic: "",
     comment: "",
     id: "new"
   },
 
 
-  // // whe done, call the callback
-  // load: function(done) {
-  //   var self = this;
-  //   // run an INSERT on the database
-  //   var query = db.connection.prepare(LOAD);
-  //    // get its own data
-  //   var data = this.toJSON();
-  //   query.get({
-  //     $id: data.id
-  //   }, function(err, loaded) {
-  //     self.set(loaded);
-  //     done(err);
-  //   });
-  // },
+
+
+
+  // whe done, call the callback
+  load: function(done) {
+    var self = this;
+    // run an INSERT on the database
+    var query = db.connection.prepare(LOAD);
+     // get its own data
+    var data = this.toJSON();
+    query.get({
+      $id: data.id
+    }, function(err, loaded) {
+      self.set(loaded);
+      done(err);
+    });
+  },
 
     save: function(done) {
     var self = this;
@@ -46,13 +48,9 @@ var LAST = "SELECT last_insert_rowid() AS topic FROM blogposts;";
     var data = this.toJSON();
 
     query.run({
-
-
+      $date: Date.now(),
       $topic: data.topic,
       $comment: data.comment,
-      $date: moment().format("MMMM do,YY"),
-      $timestamp: moment().format("x"),
-      // $date: Date.now(),
       $id: id == "new" ? undefined : data.id
 
     }, done);

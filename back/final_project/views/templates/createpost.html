@@ -1,0 +1,30 @@
+
+
+<h2>'CREATE POST PAGE'</h2>
+
+
+
+<form action="/createpost{{bloglist.id}}" method="POST">
+
+		<label for="topic">Your username:</label><br />
+		<input name="topic" type="text" size="106" placeholder="Topic"><br />
+
+	<label for="client" >Client</label><br  />
+
+    <input name="comment" class="text-box" value="{{bloglist.comment}}" placeholder="Comment"><br />
+
+		<label for="date">Your date:</label><br />
+		<input name="date" value="{{bloglist.formatted}}" size="106"  placeholder="date"><br />
+
+	<input type="submit" value="Add New" />
+</form>
+
+
+
+	{{#shorts}}
+	<li class = "single"><p>{{username}} <br>
+	{{comment}}</li>
+  <!--   Date:{{formatted}} -->
+	{{/shorts}}
+
+</ul>

@@ -20,21 +20,21 @@ var LAST = "SELECT last_insert_rowid() AS rowid FROM users;";
 
 
 
-  // 
-  // // whe done, call the callback
-  // load: function(done) {
-  //   var self = this;
-  //   // run an INSERT on the database
-  //   var query = db.connection.prepare(LOAD);
-  //    // get its own data
-  //   var username = this.toJSON();
-  //   query.get({
-  //     $id: username.id
-  //   }, function(err, loaded) {
-  //     self.set(loaded);
-  //     done(err);
-  //   });
-  // },
+
+  // whe done, call the callback
+  load: function(done) {
+    var self = this;
+    // run an INSERT on the database
+    var query = db.connection.prepare(LOAD);
+     // get its own data
+    var username = this.toJSON();
+    query.get({
+      $id: username.id
+    }, function(err, loaded) {
+      self.set(loaded);
+      done(err);
+    });
+  },
 
     query.run({
       $username: data.username,

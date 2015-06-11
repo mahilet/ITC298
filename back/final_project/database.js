@@ -2,8 +2,6 @@ var async = require("async");
 var sqlite = require("sqlite3");
 var db; // used across this module
 
-
-
 var usersDb = {
   connection: null,
   init: function(ready) {
@@ -21,21 +19,16 @@ var usersDb = {
           console.log("creating user database", db);
           db.run("CREATE TABLE IF NOT EXISTS users (username, bio, website, password);", function(err) {
             console.log(err, "users TABLE is created");
-            //  db.run("INSERT INTO users VALUES ('Mahilet', 'humanFemail', 'google.com', '1234');", function(err) {
-            //    console.log(err, "Mahilet is inserted into database");
-
-              //  db.run("ALTER TABLE blogposts ADD COLUMN timestamp");
-
+             db.run("INSERT INTO users VALUES ('Mahilet', 'humanFemail', 'google.com', '1234');", function(err) {
+               console.log(err, "Mahilet is inserted into database");
                db.run("INSERT INTO users VALUES ('h', 'assets/images/mahilet.jpg', 'banana.com', '1');", next);
-            //  });
+             });
           });
         },
         function(next) {
-          console.log("STARTING to create table 'blogposts");
           // db.run("DELETE FROM blogposts");
-          // db.run("DELETE FROM users");
-          db.run("CREATE TABLE IF NOT EXISTS blogposts (date, comment, topic );", function (err) {
-            console.log(err, "blogposts is created");
+          db.run("CREATE TABLE IF NOT EXISTS blogposts (date, comment, topic);", function () {
+            console.log("blogposts is created");
 
           }, next);
         }
@@ -50,15 +43,13 @@ var usersDb = {
     this.connection.all("SELECT username, bio, website, rowid, password FROM users;", c);
   },
   getAllblogPosts: function(c) {
-
-    this.connection.all("SELECT * FROM blogposts ORDER BY timestamp DESC;", c);
+    this.connection.all("SELECT * FROM blogposts;", c);
   },
   saveNewPost: function(namePost) {
-    this.connection.run("INSERT INTO blogposts (date, comment, topic,timestamp) VALUES ($date, $comment, $topic, $timestamp);", {
+    this.connection.run("INSERT INTO blogposts (date, comment, topic) VALUES ($date, $comment, $topic);", {
       $topic: namePost.topic,
       $comment: namePost.comment,
-      $date: Date.now(),
-      $timestamp:namePost.timestamp
+      $date: Date.now()
     });
   },
   get: function(username, callback) {
